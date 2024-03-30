@@ -8,6 +8,115 @@
 @layer base {
   * {
     font-family: "Inter", sans-serif;
-    
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    line-height: 110%;
+  }
+  h1 {
+    font-size: 64px;
+  }
+  h2 {
+    font-size: 48px;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 400;
+  }
+  
+  input[type="radio"] {
+    /* Hide the default radio button */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* Use a custom style for the outer circle */
+    border: 2px solid red; /* Change border color */
+    border-radius: 50%; /* Make it circular */
+    width: 25px; /* Adjust size as needed */
+    aspect-ratio: 1/1; /* Keep it square */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    outline: none;
+    @apply border-borders;
+    &:checked {
+      @apply bg-blue bg-opacity-30 border-none;
+      &::before {
+        opacity: 1;
+      }
+    }
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%; /* Adjust size as needed */
+      aspect-ratio: 1/1; /* Keep it square */
+      border-radius: 50%; /* Make it circular */
+      opacity: 0; /* Initially hidden */
+      @apply bg-blue;
+    }
+  }
+
+  input[type="number"] {
+    position: relative;
+    appearance: textfield; /* Safari */
+    -moz-appearance: textfield; /* Firefox */
+    @apply outline-none border border-borders rounded-lg placeholder:text-borders p-2 font-bold text-dark-blue;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &:focus {
+      @apply border-blue;
+    }
+    &::before {
+      content: "cm";
+      position: absolute;
+      top: 50%;
+      left: 1rem;
+      transform: translateY(-50%);
+      color: #a0aec0;
+    }
+  }
+}
+
+@layer components {
+  .text-small {
+    font-size: 14px;
+  }
+  .radio-container {
+    @apply flex justify-center items-center gap-10 w-fit;
+  }
+  .input-container {
+    position: relative;
+    width: fit-content;
+    &::before {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      z-index: 10;
+      @apply text-blue;
+    }
+    &.height-metric::before {
+      content: "cm";
+    }
   }
 }
