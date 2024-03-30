@@ -46,6 +46,7 @@
       z-index: -1;
       position: absolute;
       inset: 0;
+      bottom: 20%;
       background: rgb(254, 255, 255);
       background: linear-gradient(
         138deg,
@@ -152,5 +153,8 @@
     &.weight-imperial:last-child::before {
       content: "lbs";
     }
+  }
+  .show-bmi {
+    @apply bg-blue col-span-2 p-4 text-white rounded-xl;
   }
 }
