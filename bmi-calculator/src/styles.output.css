@@ -482,6 +482,30 @@ body {
   font-weight: 400;
 }
 
+section {
+  padding: 1.3rem;
+}
+
+#BMI-Calculator {
+  position: relative;
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    background: rgb(254, 255, 255);
+    background: linear-gradient(
+        138deg,
+        rgba(254, 255, 255, 1) 0%,
+        rgba(211, 228, 249, 1) 39%
+      );
+  }
+  &::before{
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+}
+
 input[type="radio"] {
   /* Hide the default radio button */
   appearance: none;
@@ -542,6 +566,7 @@ input[type="radio"] {
 
 input[type="number"] {
   position: relative;
+  width: 100%;
   -webkit-appearance: textfield;
           appearance: textfield;
   /* Safari */
@@ -703,13 +728,11 @@ input[type="number"] {
   width: fit-content;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
+  gap: 1.25rem;
 }
 
 .input-container {
   position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
   &::before {
     position: absolute;
     top: 50%;
@@ -724,4 +747,66 @@ input[type="number"] {
   &.height-metric::before {
     content: "cm";
   }
+  &.height-imperial::before {
+    content: "ft";
+  }
+  &.height-imperial:last-child::before {
+    content: "in";
+  }
+  &.weight-metric::before {
+    content: "kg";
+  }
+  &.weight-imperial::before {
+    content: "st";
+  }
+  &.weight-imperial:last-child::before {
+    content: "lbs";
+  }
+}
+
+.col-span-2{
+  grid-column: span 2 / span 2;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid{
+  display: grid;
+}
+
+.hidden{
+  display: none;
+}
+
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4{
+  gap: 1rem;
+}
+
+.rounded-lg{
+  border-radius: 0.5rem;
+}
+
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.p-4{
+  padding: 1rem;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-dark-electric-blue{
+  --tw-text-opacity: 1;
+  color: rgb(37 51 71 / var(--tw-text-opacity));
 }

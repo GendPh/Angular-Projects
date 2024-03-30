@@ -1,0 +1,35 @@
+<div class="grid grid-cols-2 gap-4 bg-white rounded-lg p-4">
+  <h3 class="col-span-2">Enter your details below</h3>
+  <div class="radio-container">
+    <input type="radio" (change)="ChangeMetric()" id="metric" name="metric-imperial-group" checked>
+    <label for="metric">Metric</label>
+  </div>
+
+  <div class="radio-container">
+    <input type="radio" (change)="ChangeMetric()" id="imperial" name="metric-imperial-group">
+    <label for="imperial">Imperial</label>
+  </div>
+
+  <label for="height" class="col-span-2 text-dark-electric-blue">Height</label>
+  <div [hidden]="!metric" class="input-container height-metric col-span-2">
+    <input type="number" name="height" id="height" placeholder="0">
+  </div>
+  <div [hidden]="metric" class="input-container height-imperial">
+    <input type="number" name="ft" id="ft" placeholder="0">
+  </div>
+  <div [hidden]="metric" class="input-container height-imperial">
+    <input type="number" name="in" id="in" placeholder="0">
+  </div>
+
+  <label for="weight" class="col-span-2 text-dark-electric-blue">Weight</label>
+  <div [hidden]="!metric" class="input-container weight-metric col-span-2">
+    <input type="number" name="weight" id="weight" placeholder="0">
+  </div>
+  <div [hidden]="metric" class="input-container height-imperial">
+    <input type="number" name="st" id="st" placeholder="0">
+  </div>
+  <div [hidden]="metric" class="input-container height-imperial">
+    <input type="number" name="lbs" id="lbs" placeholder="0">
+  </div>
+
+</div>

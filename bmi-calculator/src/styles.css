@@ -35,7 +35,26 @@
     line-height: 150%;
     font-weight: 400;
   }
-  
+  section {
+    padding: 1.3rem;
+  }
+
+  #BMI-Calculator {
+    position: relative;
+    &::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      inset: 0;
+      background: rgb(254, 255, 255);
+      background: linear-gradient(
+        138deg,
+        rgba(254, 255, 255, 1) 0%,
+        rgba(211, 228, 249, 1) 39%
+      );
+      @apply rounded-b-3xl;
+    }
+  }
   input[type="radio"] {
     /* Hide the default radio button */
     appearance: none;
@@ -75,6 +94,7 @@
 
   input[type="number"] {
     position: relative;
+    width: 100%;
     appearance: textfield; /* Safari */
     -moz-appearance: textfield; /* Firefox */
     @apply outline-none border border-borders rounded-lg placeholder:text-borders p-2 font-bold text-dark-blue;
@@ -102,11 +122,10 @@
     font-size: 14px;
   }
   .radio-container {
-    @apply flex justify-center items-center gap-10 w-fit;
+    @apply flex justify-center items-center gap-5 w-fit;
   }
   .input-container {
     position: relative;
-    width: fit-content;
     &::before {
       position: absolute;
       top: 50%;
@@ -117,6 +136,21 @@
     }
     &.height-metric::before {
       content: "cm";
+    }
+    &.height-imperial::before {
+      content: "ft";
+    }
+    &.height-imperial:last-child::before {
+      content: "in";
+    }
+    &.weight-metric::before {
+      content: "kg";
+    }
+    &.weight-imperial::before {
+      content: "st";
+    }
+    &.weight-imperial:last-child::before {
+      content: "lbs";
     }
   }
 }
