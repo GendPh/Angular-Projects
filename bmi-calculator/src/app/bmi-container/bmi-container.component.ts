@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-bmi-container',
@@ -10,14 +10,31 @@ import { Component } from '@angular/core';
 export class BmiContainerComponent {
   metric: boolean = true;
   bmiValue: number = 0;
-  bmiDescription: string = "Your BMI suggests you're a healthy weight. Your ideal weight is between ";
-  bmiRange: string = "63.3kgs - 85.2kgs";
+  bmiDescription: string = "Normal weight";
+  bmiRange: string = "0 - 0";
   height: number = 0;
   weight: number = 0;
   heightFt: number = 0;
   heightIn: number = 0;
   weightSt: number = 0;
   weightLbs: number = 0;
+
+  @Output() messageEvent = new EventEmitter<number>();
+
+  SendBmiValue(): void {
+    this.messageEvent.emit(this.bmiValue);
+  }
+
+  CalculateBMI(weight: number, height: number, weightSt: number, weightLbs: number, heightFt: number, heightIn: number): void {
+    if (this.metric) {
+      this.bmiValue = this.metricCalculateBMI(weight, height);
+      this.BMIMetricDescriptionRange(this.bmiValue);
+    } else {
+      this.bmiValue = this.imperialCalculateBMI(weightSt, weightLbs, heightFt, heightIn);
+      this.BMIImperialDescriptionRange(this.bmiValue);
+    }
+    this.SendBmiValue();
+  }
 
   ChangeMetric(): void {
     this.metric = !this.metric;
@@ -67,17 +84,55 @@ export class BmiContainerComponent {
     }
   }
 
-  CalculateBMI(weight: number, height: number, weightSt: number, weightLbs: number, heightFt: number, heightIn: number): void {
-    if (this.metric) {
-      this.bmiValue = this.metricCalculateBMI(weight, height);
+  private BMIMetricDescriptionRange(bmi: number): void {
+    if (bmi < 18.5) {
+      this.bmiDescription = "Your BMI suggests you're a Underweight. Your ideal weight is between ";
+      this.bmiRange = "below 18.4";
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      this.bmiDescription = "Your BMI suggests you're a Normal weight. Your ideal weight is between ";
+      this.bmiRange = "18.5 - 24.9";
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      this.bmiDescription = "Your BMI suggests you're a Overweight. Your ideal weight is between ";
+      this.bmiRange = "25.9 - 29.9";
+    } else if (bmi >= 30 && bmi <= 34.9) {
+      this.bmiDescription = "Your BMI suggests you're a Obesity (Class I). Your ideal weight is between ";
+      this.bmiRange = "30 - 34.9";
+    } else if (bmi >= 35 && bmi <= 39.9) {
+      this.bmiDescription = "Your BMI suggests you're a Obesity (Class II). Your ideal weight is between ";
+      this.bmiRange = "35 - 39.9";
+    } else if (bmi >= 40) {
+      this.bmiDescription = "Your BMI suggests you're Obesity (Class III). Your ideal weight is between ";
+      this.bmiRange = "above 40";
     } else {
-      this.bmiValue = this.imperialCalculateBMI(weightSt, weightLbs, heightFt, heightIn);
+      this.bmiDescription = "No BMI value found. ";
+      this.bmiRange = "0 - 0";
     }
-
-    console.log(this.bmiValue);
-    // this.bmiDescription = this.GetBMIDescription(this.bmiValue);
-    // this.bmiRange = this.GetBMIWeightRange(this.bmiValue);
   }
+  private BMIImperialDescriptionRange(bmi: number): void {
+    if (bmi < 18.5) {
+      this.bmiDescription = "Your BMI suggests you're a Underweight. Your ideal weight is between ";
+      this.bmiRange = "below 123 lbs";
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      this.bmiDescription = "Your BMI suggests you're a Normal weight. Your ideal weight is between ";
+      this.bmiRange = "124 lbs - 164 lbs";
+    } else if (bmi >= 25 && bmi <= 29.9) {
+      this.bmiDescription = "Your BMI suggests you're a Overweight. Your ideal weight is between ";
+      this.bmiRange = "165 lbs - 208 lbs";
+    } else if (bmi >= 30 && bmi <= 34.9) {
+      this.bmiDescription = "Your BMI suggests you're a Obesity (Class I). Your ideal weight is between ";
+      this.bmiRange = "209 lbs - 243 lbs";
+    } else if (bmi >= 35 && bmi <= 39.9) {
+      this.bmiDescription = "Your BMI suggests you're a Obesity (Class II). Your ideal weight is between ";
+      this.bmiRange = "244 lbs - 276 lbs";
+    } else if (bmi >= 40) {
+      this.bmiDescription = "Your BMI suggests you're Obesity (Class III). Your ideal weight is between ";
+      this.bmiRange = "above 277 lbs";
+    } else {
+      this.bmiDescription = "No BMI value found. ";
+      this.bmiRange = "0 - 0";
+    }
+  }
+
   private metricCalculateBMI(weight: number, height: number): number {
     // Convert height from centimeters to meters
     var heightMeters = height / 100;
@@ -99,4 +154,6 @@ export class BmiContainerComponent {
 
     return bmi;
   }
+
+
 }
