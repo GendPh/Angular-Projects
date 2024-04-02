@@ -1,9 +1,13 @@
-<section class="grid gap-y-9 bg-[#E7F5FE] bg-opacity-25">
+<section class="grid lg:grid-cols-3 gap-9 bg-[#E7F5FE] bg-opacity-25">
   @for (rec of bmiRecommendation; track $index) {
-  <article class="grid gap-y-7">
-    <img src="{{rec.img}}" alt="Image of {{rec.title}}">
-    <h3>{{rec.title}}</h3>
-    <p class="description">{{rec.description}}</p>
+  <article class="grid md:grid-flow-col lg:grid-flow-row auto-cols-[minmax(1,_2fr)] gap-y-7 md:gap-x-7">
+    <figure class="md:place-content-center">
+      <img src="{{rec.img}}" alt="Image of {{rec.title}}">
+    </figure>
+    <div>
+      <h3 class="mb-7">{{rec.title}}</h3>
+      <p class="description">{{rec.description}}</p>
+    </div>
   </article>
   }
 </section>

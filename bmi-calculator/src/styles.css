@@ -36,7 +36,7 @@
     font-weight: 400;
   }
   section {
-    @apply p-6 py-10;
+    @apply p-6 py-10 md:p-10 lg:p-20;
   }
 
   .background {
@@ -45,15 +45,13 @@
       content: "";
       z-index: -1;
       position: absolute;
-      inset: 0;
-      bottom: 20%;
       background: rgb(254, 255, 255);
       background: linear-gradient(
         138deg,
         rgba(254, 255, 255, 1) 0%,
         rgba(211, 228, 249, 1) 39%
       );
-      @apply rounded-b-3xl;
+      @apply rounded-b-3xl inset-0 bottom-[20%] lg:bottom-[0] lg:right-[30%];
     }
   }
   input[type="radio"] {

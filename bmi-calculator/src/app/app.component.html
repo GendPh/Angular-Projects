@@ -1,59 +1,62 @@
-<main>
+<main class="overflow-hidden">
   <section class="background">
-    <img src="../assets/logo.svg" alt="Web Site Circle Logo" id="logo" class="mx-auto mb-5">
-
-    <h1 class="text-center">Body Mass Index Calculator</h1>
-    <p class="my-10 text-center description">Better understand your weight in relation to your height using
-      our
-      body mass index (BM)
-      calculator. While BMI is
-      not the sole determinant of a healthy weight ,it offer a valuable starting point to evaluate your overall health
-      and
-      well-being.</p>
-
-    <div class="grid grid-cols-2 gap-4 bg-white rounded-2xl p-4 shadow-container">
-      <h3 class="col-span-2">Enter your details below</h3>
-      <div class="radio-container">
-        <input type="radio" (change)="ChangeMetric()" id="metric" name="metric-imperial-group" checked>
-        <label for="metric" class="text-regular font-bold">Metric</label>
+    <img src="../assets/logo.svg" alt="Web Site Circle Logo" id="logo" class="mx-auto lg:mx-0 mb-20">
+    <div class="grid lg:grid-cols-2 lg:gap-20">
+      <div>
+        <h1 class="text-center lg:text-start text-balance">Body Mass Index Calculator</h1>
+        <p class="my-10 text-center lg:text-start description">Better understand your weight in relation to your height
+          using
+          our
+          body mass index (BM)
+          calculator. While BMI is
+          not the sole determinant of a healthy weight, it offer a valuable starting point to evaluate your overall
+          health
+          and
+          well-being.</p>
       </div>
 
-      <div class="radio-container">
-        <input type="radio" (change)="ChangeMetric()" id="imperial" name="metric-imperial-group">
-        <label for="imperial" class="text-regular font-bold">Imperial</label>
-      </div>
-
-      <div class="col-span-2 md:col-span-1">
-        <label for="height" class="text-small text-dark-electric-blue">Height</label>
-
-        <div [hidden]="!metric" class="input-container height-metric">
-          <input type="number" name="height" id="height" placeholder="0" (input)="SetHeight($event)">
+      <div class="grid grid-cols-2 gap-4 bg-white rounded-2xl p-4 shadow-container">
+        <h3 class="col-span-2">Enter your details below</h3>
+        <div class="radio-container">
+          <input type="radio" (change)="ChangeMetric()" id="metric" name="metric-imperial-group" checked>
+          <label for="metric" class="text-regular font-bold">Metric</label>
         </div>
 
-        <div [hidden]="metric" class="input-container height-imperial-ft mb-4">
-          <input type="number" name="ft" id="ft" placeholder="0" (input)="SetHeightFt($event)">
+        <div class="radio-container">
+          <input type="radio" (change)="ChangeMetric()" id="imperial" name="metric-imperial-group">
+          <label for="imperial" class="text-regular font-bold">Imperial</label>
         </div>
 
-        <div [hidden]="metric" class="input-container height-imperial-in">
-          <input type="number" name="in" id="in" placeholder="0" (input)="SetHeightIn($event)">
-        </div>
-      </div>
+        <div class="col-span-2 md:col-span-1 grid grid-cols-2 gap-x-4">
+          <label for="height" class="text-small text-dark-electric-blue col-span-2">Height</label>
 
-      <div class="col-span-2 md:col-span-1">
-        <label for="weight" class="text-small text-dark-electric-blue">Weight</label>
-        <div [hidden]="!metric" class="input-container weight-metric">
-          <input type="number" name="weight" id="weight" placeholder="0" (input)="SetWeight($event)">
-        </div>
-        <div [hidden]="metric" class="input-container weight-imperial-st mb-4">
-          <input type="number" name="st" id="st" placeholder="0" (input)="SetWeightSt($event)">
-        </div>
-        <div [hidden]="metric" class="input-container weight-imperial-lbs">
-          <input type="number" name="lbs" id="lbs" placeholder="0" (input)="SetWeightLbs($event)">
-        </div>
-      </div>
+          <div [hidden]="!metric" class="input-container height-metric col-span-2">
+            <input type="number" name="height" id="height" placeholder="0" (input)="SetHeight($event)">
+          </div>
 
-      <div class="show-bmi">
-        <div class="grid">
+          <div [hidden]="metric" class="input-container height-imperial-ft md:mb-4 md:col-span-2">
+            <input type="number" name="ft" id="ft" placeholder="0" (input)="SetHeightFt($event)">
+          </div>
+
+          <div [hidden]="metric" class="input-container height-imperial-in md:col-span-2">
+            <input type="number" name="in" id="in" placeholder="0" (input)="SetHeightIn($event)">
+          </div>
+        </div>
+
+        <div class="col-span-2 md:col-span-1 grid grid-cols-2 gap-x-4">
+          <label for="weight" class="text-small text-dark-electric-blue col-span-2">Weight</label>
+          <div [hidden]="!metric" class="input-container weight-metric col-span-2">
+            <input type="number" name="weight" id="weight" placeholder="0" (input)="SetWeight($event)">
+          </div>
+          <div [hidden]="metric" class="input-container weight-imperial-st md:mb-4 md:col-span-2">
+            <input type="number" name="st" id="st" placeholder="0" (input)="SetWeightSt($event)">
+          </div>
+          <div [hidden]="metric" class="input-container weight-imperial-lbs md:col-span-2">
+            <input type="number" name="lbs" id="lbs" placeholder="0" (input)="SetWeightLbs($event)">
+          </div>
+        </div>
+
+        <div class="show-bmi rounded-r-full rounded-l-[999px]">
           <h4 [hidden]="bmiValue!=0">Welcome!</h4>
           <p [hidden]="bmiValue!=0" class="text-small mt-4">Enter your height and weight and you will see your BMI
             result
@@ -64,15 +67,15 @@
           <p [hidden]="bmiValue==0" class="text-white text-small">{{bmiDescription}} <span
               class="text-white font-bold text-regular">{{bmiRange}}</span>.</p>
         </div>
-
       </div>
     </div>
   </section>
 
 
-  <section class="p-0 py-5 ">
-    <img src="../assets/image-man-eating.webp" alt="man eating sushi">
-    <article class="p-5">
+  <section class="p-0 py-5 grid items-center md:grid-cols-2 lg:px-20">
+    <img src="../assets/image-man-eating.webp" alt="man eating sushi"
+      class="md:translate-x-[-10%] lg:translate-x-0 lg:max-w-[500px]">
+    <article class="p-5 lg:pl-24">
       <h2 class="font-semibold">What your BMI result means</h2>
       <p class="mt-5 description">{{bmiFullDescription}}</p>
     </article>
@@ -81,12 +84,66 @@
   <app-bmi-recommendation></app-bmi-recommendation>
 
   <section class="text-center">
-    <h2>Limitations of BMI</h2>
-    <p class="my-8 description">Although BMI is often a practical indicator of healthy weight, it is not suited for
-      every person.
-      Specific groups
-      should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.
-    </p>
+    <div class="grid lg:grid-cols-2 mb-5">
+      <div>
+        <h2>Limitations of BMI</h2>
+        <p class="my-8 description">Although BMI is often a practical indicator of healthy weight, it is not suited for
+          every person.
+          Specific groups
+          should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to
+          use.
+        </p>
+      </div>
+      <article class="hidden lg:block shadow-container rounded-2xl p-5 max-w-[400px] mx-auto">
+        <div class="flex items-center justify-start gap-5 mb-5 ">
+          <img src="../assets/icon-gender.svg" alt="Svg Gender">
+          <h4>Gender</h4>
+        </div>
+        <p class="text-justify description">The development and body fat composition of girls and boys vary with age.
+          Consequently, a child's age and gender are considered when evaluating their BMI.</p>
+      </article>
+    </div>
+
+    <div class="hidden lg:flex items-center justify-end gap-5">
+      <article class="shadow-container rounded-2xl p-5 max-w-[400px]">
+        <div class="flex items-center justify-start gap-5 mb-5">
+          <img src="../assets/icon-age.svg" alt="Svg Age">
+          <h4>Age</h4>
+        </div>
+        <p class="text-justify description">In aging individuals, increased body fat and muscle loss may cause BMI to
+          underestimate body fat content.</p>
+      </article>
+      <article class="shadow-container rounded-2xl p-5 max-w-[400px]">
+        <div class="flex items-center justify-start gap-5 mb-5">
+          <img src="../assets/icon-muscle.svg" alt="Svg Muscle">
+          <h4>Muscle</h4>
+        </div>
+        <p class="text-justify description">BMI may misclassify muscular individuals as overweight or obese, as it
+          doesn't differentiate muscle from fat.</p>
+      </article>
+    </div>
+
+    <div class="hidden lg:flex items-center justify-center gap-5 mt-5">
+      <article class="shadow-container rounded-2xl p-5 max-w-[400px]">
+        <div class="flex items-center justify-start gap-5 mb-5">
+          <img src="../assets/icon-pregnancy.svg" alt="Svg Pregnancy">
+          <h4>Pregnancy</h4>
+        </div>
+        <p class="text-justify description">Expectant mothers experience weight gain due to their growing baby.
+          Maintaining a healthy pre-pregnancy BMI is advisable to minimize health risks for both mother and child.</p>
+      </article>
+      <article class="shadow-container rounded-2xl p-5 max-w-[400px]">
+        <div class="flex items-center justify-start gap-5 mb-5">
+          <img src="../assets/icon-race.svg" alt="Svg Race">
+          <h4>Race</h4>
+        </div>
+        <p class="text-justify description">Certain health concerns may affect individuals of some Black and Asian
+          origins at lower BMIs than others. To learn more, it is advised to discuss this with your GP or practice
+          nurse.</p>
+      </article>
+    </div>
+
+
     <app-bmi-limitation></app-bmi-limitation>
   </section>
 </main>
