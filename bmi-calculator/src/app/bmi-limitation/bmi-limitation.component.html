@@ -1,0 +1,11 @@
+<div class="grid gap-y-9">
+  @for (lim of bmiLimitation; track $index) {
+  <article class="shadow-container rounded-2xl p-5">
+    <div class="flex items-center justify-start gap-5 mb-5">
+      <img src="{{lim.img}}" alt="{{lim.title}}">
+      <h4>{{lim.title}}</h4>
+    </div>
+    <p class="text-justify description">{{lim.description}}</p>
+  </article>
+  }
+</div>

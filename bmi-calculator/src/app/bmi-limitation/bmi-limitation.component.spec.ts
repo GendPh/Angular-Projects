@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BmiContainerComponent } from './bmi-container.component';
+import { BmiLimitationComponent } from './bmi-limitation.component';
 
-describe('BmiContainerComponent', () => {
-  let component: BmiContainerComponent;
-  let fixture: ComponentFixture<BmiContainerComponent>;
+describe('BmiLimitationComponent', () => {
+  let component: BmiLimitationComponent;
+  let fixture: ComponentFixture<BmiLimitationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BmiContainerComponent]
+      imports: [BmiLimitationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(BmiContainerComponent);
+    fixture = TestBed.createComponent(BmiLimitationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

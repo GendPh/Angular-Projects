@@ -18,10 +18,10 @@
     line-height: 110%;
   }
   h1 {
-    font-size: 64px;
+    font-size: 48px;
   }
   h2 {
-    font-size: 48px;
+    font-size: 32px;
   }
   h3 {
     font-size: 24px;
@@ -36,10 +36,10 @@
     font-weight: 400;
   }
   section {
-    padding: 1.3rem;
+    @apply p-6 py-10;
   }
 
-  #BMI-Calculator {
+  .background {
     position: relative;
     &::before {
       content: "";
@@ -96,6 +96,7 @@
   input[type="number"] {
     position: relative;
     width: 100%;
+    font-size: 24px;
     appearance: textfield; /* Safari */
     -moz-appearance: textfield; /* Firefox */
     @apply outline-none border border-borders rounded-lg placeholder:text-borders p-2 font-bold text-dark-blue;
@@ -122,6 +123,13 @@
   .text-small {
     font-size: 14px;
   }
+  .text-regular {
+    font-size: 16px;
+  }
+  .description {
+    font-size: 16px;
+    @apply text-dark-electric-blue;
+  }
   .radio-container {
     @apply flex justify-center items-center gap-5 w-fit;
   }
@@ -138,23 +146,28 @@
     &.height-metric::before {
       content: "cm";
     }
-    &.height-imperial::before {
+    &.height-imperial-ft::before {
       content: "ft";
     }
-    &.height-imperial:last-child::before {
+    &.height-imperial-in::before {
       content: "in";
     }
     &.weight-metric::before {
       content: "kg";
     }
-    &.weight-imperial::before {
+    &.weight-imperial-st::before {
       content: "st";
     }
-    &.weight-imperial:last-child::before {
+    &.weight-imperial-lbs::before {
       content: "lbs";
     }
   }
   .show-bmi {
     @apply bg-blue col-span-2 p-4 text-white rounded-xl;
+  }
+  .shadow-container {
+    --color: rgba(143, 174, 207, 0.25);
+    background-color: white;
+    box-shadow: 16px 32px 56px 3px var(--color);
   }
 }
