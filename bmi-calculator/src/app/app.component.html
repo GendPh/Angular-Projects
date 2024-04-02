@@ -23,26 +23,33 @@
         <label for="imperial" class="text-regular font-bold">Imperial</label>
       </div>
 
-      <label for="height" class="text-small col-span-2 text-dark-electric-blue">Height</label>
-      <div [hidden]="!metric" class="input-container height-metric col-span-2">
-        <input type="number" name="height" id="height" placeholder="0" (input)="SetHeight($event)">
-      </div>
-      <div [hidden]="metric" class="input-container height-imperial-ft">
-        <input type="number" name="ft" id="ft" placeholder="0" (input)="SetHeightFt($event)">
-      </div>
-      <div [hidden]="metric" class="input-container height-imperial-in">
-        <input type="number" name="in" id="in" placeholder="0" (input)="SetHeightIn($event)">
+      <div class="col-span-2 md:col-span-1">
+        <label for="height" class="text-small text-dark-electric-blue">Height</label>
+
+        <div [hidden]="!metric" class="input-container height-metric">
+          <input type="number" name="height" id="height" placeholder="0" (input)="SetHeight($event)">
+        </div>
+
+        <div [hidden]="metric" class="input-container height-imperial-ft mb-4">
+          <input type="number" name="ft" id="ft" placeholder="0" (input)="SetHeightFt($event)">
+        </div>
+
+        <div [hidden]="metric" class="input-container height-imperial-in">
+          <input type="number" name="in" id="in" placeholder="0" (input)="SetHeightIn($event)">
+        </div>
       </div>
 
-      <label for="weight" class="text-small col-span-2 text-dark-electric-blue">Weight</label>
-      <div [hidden]="!metric" class="input-container weight-metric col-span-2">
-        <input type="number" name="weight" id="weight" placeholder="0" (input)="SetWeight($event)">
-      </div>
-      <div [hidden]="metric" class="input-container weight-imperial-st">
-        <input type="number" name="st" id="st" placeholder="0" (input)="SetWeightSt($event)">
-      </div>
-      <div [hidden]="metric" class="input-container weight-imperial-lbs">
-        <input type="number" name="lbs" id="lbs" placeholder="0" (input)="SetWeightLbs($event)">
+      <div class="col-span-2 md:col-span-1">
+        <label for="weight" class="text-small text-dark-electric-blue">Weight</label>
+        <div [hidden]="!metric" class="input-container weight-metric">
+          <input type="number" name="weight" id="weight" placeholder="0" (input)="SetWeight($event)">
+        </div>
+        <div [hidden]="metric" class="input-container weight-imperial-st mb-4">
+          <input type="number" name="st" id="st" placeholder="0" (input)="SetWeightSt($event)">
+        </div>
+        <div [hidden]="metric" class="input-container weight-imperial-lbs">
+          <input type="number" name="lbs" id="lbs" placeholder="0" (input)="SetWeightLbs($event)">
+        </div>
       </div>
 
       <div class="show-bmi">
@@ -63,7 +70,7 @@
   </section>
 
 
-  <section class="p-0 py-5">
+  <section class="p-0 py-5 ">
     <img src="../assets/image-man-eating.webp" alt="man eating sushi">
     <article class="p-5">
       <h2 class="font-semibold">What your BMI result means</h2>
@@ -75,7 +82,8 @@
 
   <section class="text-center">
     <h2>Limitations of BMI</h2>
-    <p class="my-8 description">Although BMI is often a practical indicator of healthy weight, it is not suited for every person.
+    <p class="my-8 description">Although BMI is often a practical indicator of healthy weight, it is not suited for
+      every person.
       Specific groups
       should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.
     </p>

@@ -833,6 +833,10 @@ input[type="number"] {
   margin-top: 1.25rem;
 }
 
+.mb-4{
+  margin-bottom: 1rem;
+}
+
 .flex{
   display: flex;
 }
@@ -932,4 +936,10 @@ input[type="number"] {
 .text-white{
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px){
+  .md\:col-span-1{
+    grid-column: span 1 / span 1;
+  }
 }
