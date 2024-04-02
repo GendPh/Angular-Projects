@@ -824,6 +824,54 @@ input[type="number"] {
   box-shadow: 16px 32px 56px 3px var(--color);
 }
 
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.right-\[10\%\]{
+  right: 10%;
+}
+
+.top-\[\]{
+  top: ;
+}
+
+.top-\[-\]{
+  top: -;
+}
+
+.top-\[-5\%\]{
+  top: -5%;
+}
+
+.top-\[5\%\]{
+  top: 5%;
+}
+
+.top-\[50\%\]{
+  top: 50%;
+}
+
+.left-\[10\%\]{
+  left: 10%;
+}
+
+.left-\[30\%\]{
+  left: 30%;
+}
+
+.left-\[20\%\]{
+  left: 20%;
+}
+
+.top-\[40\%\]{
+  top: 40%;
+}
+
 .col-span-2{
   grid-column: span 2 / span 2;
 }
@@ -877,6 +925,30 @@ input[type="number"] {
 
 .hidden{
   display: none;
+}
+
+.w-\[100px\]{
+  width: 100px;
+}
+
+.w-\[55px\]{
+  width: 55px;
+}
+
+.w-\[60px\]{
+  width: 60px;
+}
+
+.w-\[\]{
+  width: ;
+}
+
+.w-\[50px\]{
+  width: 50px;
+}
+
+.w-\[70px\]{
+  width: 70px;
 }
 
 .max-w-\[400px\]{
