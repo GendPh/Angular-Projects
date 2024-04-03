@@ -1,0 +1,36 @@
+/* 
+  npx tailwindcss -i ./src/styles.css -o ./src/output.css --watch 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    font-family: "Poppins", sans-serif;
+    @apply text-custom-gray;
+  }
+  article {
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+  }
+}
+
+@layer components {
+  .title {
+    @apply text-2xl lg:text-4xl;
+  }
+  .sub-title {
+    @apply text-xl;
+  }
+  .description {
+    font-size: 15px;
+    opacity: 50%;
+  }
+  .sub-description {
+    font-size: 13px;
+    opacity: 50%;
+  }
+}
