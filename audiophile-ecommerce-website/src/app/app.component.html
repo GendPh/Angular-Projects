@@ -17,7 +17,7 @@
     <app-category class="grid gap-5"></app-category>
   </section>
 
-  <section class="p-5">
+  <section class="p-5 grid gap-10">
     <div class="bg-brown rounded-lg p-5 text-center">
       <img class="w-40 mx-auto" src="../assets/home/mobile/image-speaker-zx9.png" alt="image of speaker zx9">
       <h3 class="my-5 text-balance">zx9 speaker</h3>
@@ -25,10 +25,29 @@
       <button class="button-secondary-black"><a href="#">See Product</a></button>
     </div>
 
-    <div class="bg-[url('../assets/home/mobile/image-speaker-zx7.jpg')] bg-cover bg-center bg-no-repeat">
-      <h3>zx7 speaker</h3>
+    <div class="py-20 px-5 rounded-lg"
+      style="background: url(../assets/home/mobile/image-speaker-zx7.jpg) no-repeat center/100% 100%;">
+      <h3>ZX7 SPEAKER</h3>
+      <button class="mt-10 button-secondary"><a href="#">See Product</a></button>
+    </div>
+
+    <div class="grid gap-5">
+      <div class="aspect-video rounded-lg"
+        style="background: url(../assets/home/mobile/image-earphones-yx1.jpg) no-repeat center/100% 100%;"></div>
+      <div class="bg-gray p-10 rounded-lg">
+        <h3>YX1 EARPHONES</h3>
+        <button class="mt-10 button-secondary"><a href="#">See Product</a></button>
+      </div>
     </div>
   </section>
+
+  <section class="p-5">
+    <app-audio-gear-text></app-audio-gear-text>
+  </section>
 </main>
+
+<footer>
+  <app-footer></app-footer>
+</footer>
 
 <router-outlet />

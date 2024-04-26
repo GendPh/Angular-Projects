@@ -802,6 +802,22 @@ button{
   margin-bottom: 1.25rem;
 }
 
+.mt-10{
+  margin-top: 2.5rem;
+}
+
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+
+.mb-8{
+  margin-bottom: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -818,12 +834,21 @@ button{
   display: none;
 }
 
+.aspect-video{
+  aspect-ratio: 16 / 9;
+}
+
 .w-32{
   width: 8rem;
 }
 
 .w-40{
   width: 10rem;
+}
+
+.w-fit{
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .grid-cols-1{
@@ -848,6 +873,14 @@ button{
 
 .gap-5{
   gap: 1.25rem;
+}
+
+.gap-10{
+  gap: 2.5rem;
+}
+
+.gap-8{
+  gap: 2rem;
 }
 
 .overflow-hidden{
@@ -875,78 +908,19 @@ button{
   background-color: rgb(16 16 16 / var(--tw-bg-opacity));
 }
 
-.bg-white{
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-brown{
   --tw-bg-opacity: 1;
   background-color: rgb(216 125 74 / var(--tw-bg-opacity));
 }
 
-.bg-\[\]{
-  background-color: ;
+.bg-white{
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.bg-\[url\(\"\"\)\]{
-  background-image: url("");
-}
-
-.bg-\[url\(\'\'\)\]{
-  background-image: url('');
-}
-
-.bg-\[url\(\'\.\'\)\]{
-  background-image: url('.');
-}
-
-.bg-\[url\(\'\.\/assets\'\)\]{
-  background-image: url('./assets');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\'\)\]{
-  background-image: url('./assets/home/mobile');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\/\'\)\]{
-  background-image: url('./assets/home/mobile/');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\/image\'\)\]{
-  background-image: url('./assets/home/mobile/image');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\/image-spea\'\)\]{
-  background-image: url('./assets/home/mobile/image-spea');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\/image-speaker-z\'\)\]{
-  background-image: url('./assets/home/mobile/image-speaker-z');
-}
-
-.bg-\[url\(\'\.\/assets\/home\/mobile\/image-speaker-zx7\.png\'\)\]{
-  background-image: url('./assets/home/mobile/image-speaker-zx7.png');
-}
-
-.bg-\[url\(\'\.\.\/assets\/home\/mobile\/image-speaker-zx7\.png\'\)\]{
-  background-image: url('../assets/home/mobile/image-speaker-zx7.png');
-}
-
-.bg-\[url\(\'\.\.\/assets\/home\/mobile\/image-speaker-zx7\.jpg\'\)\]{
-  background-image: url('../assets/home/mobile/image-speaker-zx7.jpg');
-}
-
-.bg-cover{
-  background-size: cover;
-}
-
-.bg-center{
-  background-position: center;
-}
-
-.bg-no-repeat{
-  background-repeat: no-repeat;
+.bg-gray{
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 241 241 / var(--tw-bg-opacity));
 }
 
 .p-4{
@@ -955,6 +929,10 @@ button{
 
 .p-5{
   padding: 1.25rem;
+}
+
+.p-10{
+  padding: 2.5rem;
 }
 
 .px-5{
@@ -967,8 +945,22 @@ button{
   padding-bottom: 0.5rem;
 }
 
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .text-center{
   text-align: center;
+}
+
+.text-start{
+  text-align: start;
 }
 
 .font-Manrope{
@@ -977,6 +969,10 @@ button{
 
 .font-bold{
   font-weight: 700;
+}
+
+.uppercase{
+  text-transform: uppercase;
 }
 
 .capitalize{
@@ -988,14 +984,27 @@ button{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.text-brown{
+  --tw-text-opacity: 1;
+  color: rgb(216 125 74 / var(--tw-text-opacity));
+}
+
+.text-gray{
+  --tw-text-opacity: 1;
+  color: rgb(241 241 241 / var(--tw-text-opacity));
+}
+
+.text-gray-light{
+  --tw-text-opacity: 1;
+  color: rgb(250 250 250 / var(--tw-text-opacity));
+}
+
 .opacity-50{
   opacity: 0.5;
 }
 
-.ring{
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+.opacity-70{
+  opacity: 0.7;
 }
 
 .transition-all{
@@ -1006,4 +1015,24 @@ button{
 
 .duration-300{
   transition-duration: 300ms;
+}
+
+@media (min-width: 768px){
+  .md\:block{
+    display: block;
+  }
+
+  .md\:hidden{
+    display: none;
+  }
+}
+
+@media (min-width: 1024px){
+  .lg\:block{
+    display: block;
+  }
+
+  .lg\:hidden{
+    display: none;
+  }
 }
