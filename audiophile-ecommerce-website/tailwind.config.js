@@ -2,7 +2,18 @@
 module.exports = {
   content: ["./src/**/*.{html,js,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'brown': '#D87D4A',
+        'brown-light': '#fbaf85',
+        'black': '#101010',
+        'gray': '#f1f1f1',
+        'gray-light': '#fafafa',
+      }
+    },
+    fontFamily: {
+      "Manrope": ["Manrope", "sans-serif"],
+    }
   },
   plugins: [],
 }
