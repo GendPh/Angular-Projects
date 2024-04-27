@@ -124,4 +124,13 @@
       @apply bg-gray rounded-lg;
     }
   }
+  .fieldset {
+    @apply mb-3;
+    & label {
+      @apply block text-black;
+    }
+    & input {
+      @apply mt-3 w-full py-2 px-4 border border-[rbga(0,0,0,0.4)] rounded-lg;
+    }
+  }
 }

@@ -19,29 +19,23 @@ export class ShopContainerComponent {
     this.cartList = cartService.cartList;
     this.cartTotal = cartService.Total();
   }
+
   AddProduct(product: ProductCart) {
     const item = this.cartList.indexOf(product);
-
-    if (item !== -1) {
-      this.cartList[item].quantity++;
+    if (this.cartList[item].quantity < 10) {
+      this.cartService.IncreaseProduct(item);
+      this.cartTotal = this.cartService.Total();
     }
-
-    this.cartTotal = this.cartService.Total();
   }
+
   ReduceProduct(product: ProductCart) {
     const item = this.cartList.indexOf(product);
-    if (item !== -1) {
-      if (this.cartList[item].quantity > 0) {
-        this.cartList[item].quantity--;
-      }
-    }
+    this.cartService.ReduceProduct(item);
     this.cartTotal = this.cartService.Total();
-    console.log(this.cartList);
   }
-  
+
   RemoveAll() {
     this.cartService.RemoveAll();
-    this.cartList = this.cartService.cartList;
-    this.cartTotal = this.cartService.Total();
+    this.cartTotal = 0;
   }
 }

@@ -8,15 +8,27 @@ export class CartService {
     new ProductCart(4, 1, "zx9-speaker", "ZX9", 4500),
   ];
 
-  AddProduct(product: ProductCart) {
-    this.cartList.push(product);
+  IncreaseProduct(index: number) {
+    if (index !== -1) {
+      this.cartList[index].quantity++;
+    }
   }
-  RemoveProduct(product: ProductCart) {
-    this.cartList.splice(this.cartList.indexOf(product), 1);
+
+  ReduceProduct(index: number) {
+    if (index !== -1) {
+      if (this.cartList[index].quantity > 0) {
+        this.cartList[index].quantity--;
+      }
+      if (this.cartList[index].quantity === 0) {
+        this.cartList.splice(index, 1);
+      }
+    }
   }
+
   RemoveAll() {
-    this.cartList = [];
+    this.cartList.splice(0, this.cartList.length);
   }
+
   Total() {
     return this.cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
   }
