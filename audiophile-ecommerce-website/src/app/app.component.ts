@@ -4,6 +4,7 @@ import { NavigationEnd, RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductService } from '../Service/product.service';
+import { CartService } from '../Service/cart.service';
 
 
 
@@ -13,7 +14,7 @@ import { ProductService } from '../Service/product.service';
   imports: [RouterOutlet, NavBarComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [ProductService]
+  providers: [ProductService, CartService]
 })
 export class AppComponent {
   constructor(private router: Router) {

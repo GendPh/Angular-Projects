@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { AudioGearTextComponent } from '../audio-gear-text/audio-gear-text.component';
 import { CategoryComponent } from '../category/category.component';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -19,7 +18,6 @@ export class ProductComponent implements OnInit {
   product: Product;
   productQuantity: number = 1;
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService
   ) { }
@@ -28,7 +26,6 @@ export class ProductComponent implements OnInit {
     this.route.params.subscribe(params => {
       const pageName = params['name'];
       this.product = this.productService.GetProduct(pageName);
-      console.log(params['name']);
     });
   }
   removeWordFromString(inputString: string, wordToRemove: string): string {

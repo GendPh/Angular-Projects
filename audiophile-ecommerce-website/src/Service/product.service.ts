@@ -529,6 +529,7 @@ export class ProductService {
     }
   ]
 
+
   GetHeadphones() {
     return this.products.filter(product => product.category === 'headphones');
   }

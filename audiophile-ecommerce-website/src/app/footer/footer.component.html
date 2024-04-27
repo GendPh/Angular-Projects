@@ -4,10 +4,14 @@
     <p class="logo">audiophile</p>
     <nav class="w-fit mx-auto md:mx-0 uppercase">
       <ul class="flex flex-col gap-5 md:flex-row">
-        <li><a routerLink="/" class="text-white transition-colors duration-150 hover:text-brown">Home</a></li>
-        <li><a routerLink="/headphones" class="text-white transition-colors duration-150 hover:text-brown">headphones</a></li>
-        <li><a routerLink="/speakers" class="text-white transition-colors duration-150 hover:text-brown">speakers</a></li>
-        <li><a routerLink="/earphones" class="text-white transition-colors duration-150 hover:text-brown">earphones</a></li>
+        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/"
+            class="text-white transition-colors duration-150 hover:text-brown">Home</a></li>
+        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/headphones"
+            class="text-white transition-colors duration-150 hover:text-brown">headphones</a></li>
+        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/speakers"
+            class="text-white transition-colors duration-150 hover:text-brown">speakers</a></li>
+        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/earphones"
+            class="text-white transition-colors duration-150 hover:text-brown">earphones</a></li>
       </ul>
     </nav>
   </div>

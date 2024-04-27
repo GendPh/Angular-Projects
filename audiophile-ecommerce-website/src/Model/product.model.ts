@@ -48,3 +48,19 @@ export class Product {
     this.others = prod.others;
   }
 };
+
+export class ProductCart {
+  id: number;
+  quantity: number;
+  slug: string;
+  name: string;
+  price: number;
+
+  constructor(id: number, quantity: number, slug: string, name: string, price: number) {
+    this.id = id;
+    this.quantity = quantity;
+    this.slug = slug;
+    this.name = name;
+    this.price = price;
+  }
+}

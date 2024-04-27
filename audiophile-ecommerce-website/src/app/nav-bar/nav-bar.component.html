@@ -45,7 +45,7 @@
     <app-category (click)="CloseMenuCart()" [ngClass]="{'top-20':showMenu,'-top-full': !showMenu,}"
       class="pointer-events-auto fixed left-0 right-0 grid gap-5 px-5 py-2 transition-all duration-300 bg-white rounded-lg z-10"></app-category>
 
-    <app-shop-container (click)="CloseMenuCart()" [ngClass]="{'top-20':showCart,'-top-full': !showCart,}"
+    <app-shop-container [ngClass]="{'top-20':showCart,'-top-full': !showCart,}"
       class="pointer-events-auto fixed left-5 lg:w-fit lg:ml-auto right-5 lg:right-40 z-10 transition-all duration-300"></app-shop-container>
   </div>
 </header>
