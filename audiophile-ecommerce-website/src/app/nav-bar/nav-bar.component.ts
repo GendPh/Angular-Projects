@@ -2,20 +2,30 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CategoryComponent } from '../category/category.component';
 import { ShopContainerComponent } from '../shop-container/shop-container.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule, CategoryComponent, ShopContainerComponent],
+  imports: [CommonModule, CategoryComponent, ShopContainerComponent, RouterLink, RouterLinkActive],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-
   showMenu: boolean = false;
   showCart: boolean = false;
 
+  CloseMenuCart() {
+    const bodyElement = document.querySelector('body');
 
+    this.showMenu = false;
+    this.showCart = false;
+    if (this.showMenu || this.showCart) {
+      bodyElement.classList.add('overflow-hidden', 'pointer-events-none');
+    } else {
+      bodyElement.classList.remove('overflow-hidden', 'pointer-events-none');
+    }
+  }
   ActiveMenu() {
     const bodyElement = document.querySelector('body');
     if (this.showCart) {

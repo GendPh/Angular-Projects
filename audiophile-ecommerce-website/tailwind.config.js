@@ -13,6 +13,9 @@ module.exports = {
     },
     fontFamily: {
       "Manrope": ["Manrope", "sans-serif"],
+    },
+    gridTemplateRows: {
+      "2lines": "80px 1fr",
     }
   },
   plugins: [],
