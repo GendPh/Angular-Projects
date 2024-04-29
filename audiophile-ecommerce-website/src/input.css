@@ -6,7 +6,7 @@
 
 @layer base {
   section {
-    @apply px-6 py-10 lg:px-40;
+    @apply px-6 py-10 lg:px-40 bg-white;
   }
   h1,
   h2,
@@ -104,8 +104,8 @@
 
 @layer components {
   /* Style to remove the spinner arrows */
-  .no-spinner::-webkit-outer-spin-button,
-  .no-spinner::-webkit-inner-spin-button {
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }

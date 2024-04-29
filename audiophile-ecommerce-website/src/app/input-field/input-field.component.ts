@@ -14,6 +14,12 @@ export class InputFieldComponent {
   @Input("GetPlaceholder") placeholder: string;
   @Input("GetType") type: string = "text";
   @Input("GetRegex") regex: any = /^[a-zA-Z\s]+$/;
+  private regexPatterns = {
+    numbersOnly: /^\d+$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    alphanumeric: /^[a-zA-Z0-9]+$/,
+    phoneNumber: /^\+\d{1,3}-\d{3}-\d{3}-\d{4}$/,
+  };
 
   inputValue: string = "";
   inputInvalid: boolean = false;
