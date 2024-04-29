@@ -5,36 +5,60 @@
     <article class="">
       <h4>Checkout</h4>
       <h6 class="text-brown my-5">billing details</h6>
-      <div class="fieldset">
-        <label for="name">Name</label>
-        <input type="text" placeholder="Gabriel Ferreira">
-      </div>
-      <div class="fieldset">
+      <app-input-field GetLabel="name" GetPlaceholder="Gabriel Ferreira"></app-input-field>
+      <div class="input-field">
         <label for="email">Email</label>
         <input type="email" placeholder="Gabriel Ferreira">
       </div>
-      <div class="fieldset">
+      <div class="input-field">
         <label for="phoneNumber">Phone Number</label>
         <input type="email" placeholder="Gabriel Ferreira">
       </div>
 
       <h6 class="text-brown my-5">shipping info</h6>
-      <div class="fieldset">
+      <div class="input-field">
         <label for="address">Your Address</label>
         <input type="text" placeholder="Gabriel Ferreira">
       </div>
-      <div class="fieldset">
+      <div class="input-field">
         <label for="zipCode">ZIP Code</label>
         <input type="email" placeholder="Gabriel Ferreira">
       </div>
-      <div class="fieldset">
+      <div class="input-field">
         <label for="city">City</label>
         <input type="email" placeholder="Gabriel Ferreira">
       </div>
-      <div class="fieldset">
+      <div class="input-field">
         <label for="country">Country</label>
         <input type="email" placeholder="Gabriel Ferreira">
       </div>
+
+      <h6 class="text-brown my-5">payment details</h6>
+      <div class="radio-group">
+        <input (change)="SetPaymentMethod('e-money')" class="radio-input" name="payment" id="e-money" type="radio"
+          checked>
+        <label class="radio-label" for="e-money">
+          <span class="radio-inner-circle"></span>
+          E-Money
+        </label>
+
+        <input (change)="SetPaymentMethod('cash')" class="radio-input" name="payment" id="cash" type="radio">
+        <label class="radio-label" for="cash">
+          <span class="radio-inner-circle"></span>
+          Cash on Delivery
+        </label>
+      </div>
+      <div [hidden]="!eMoneyContainer">
+        <div class="input-field">
+          <label for="e-money-card">e-Money Number</label>
+          <input type="text" name="e-money-card" id="e-money-card" placeholder="238521993">
+        </div>
+        <div class="input-field">
+          <label for="e-money-pin">e-Money PIN</label>
+          <input type="number" name="e-money-pin" id="e-money-pin" placeholder="1234">
+        </div>
+      </div>
+
     </article>
   </div>
 

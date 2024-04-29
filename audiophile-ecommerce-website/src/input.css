@@ -124,13 +124,54 @@
       @apply bg-gray rounded-lg;
     }
   }
-  .fieldset {
-    @apply mb-3;
-    & label {
-      @apply block text-black;
-    }
+
+  .input-field {
+    @apply flex flex-col gap-1 mb-3;
     & input {
-      @apply mt-3 w-full py-2 px-4 border border-[rbga(0,0,0,0.4)] rounded-lg;
+      @apply border border-[#cfcfcf] rounded-lg py-4 px-6 focus-within:border-brown outline-none;
+      &.invalid {
+        @apply border border-red-500;
+      }
     }
+  }
+
+  .radio-group {
+    @apply flex flex-col gap-5;
+  }
+  .radio-label {
+    border: 1px solid #cfcfcf;
+    @apply flex items-center p-2 rounded-lg gap-5 cursor-pointer transition-colors duration-300;
+    &:hover {
+      @apply border-brown;
+    }
+  }
+  .radio-input {
+    @apply hidden;
+  }
+  .radio-input:checked + .radio-label {
+    @apply border-brown;
+  }
+
+  .radio-input:focus + .radio-label {
+    @apply outline outline-2 outline-brown;
+  }
+
+  .radio-inner-circle {
+    display: inline-block;
+    position: relative;
+    @apply w-4 aspect-square border border-[#cfcfcf] rounded-full;
+  }
+
+  .radio-input:checked + .radio-label .radio-inner-circle::after {
+    content: "";
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @apply bg-brown;
   }
 }

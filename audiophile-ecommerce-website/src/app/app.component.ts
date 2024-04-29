@@ -20,8 +20,9 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // Scroll to the top of the page
-        window.scrollTo(0, 0);
+        if (typeof window !== 'undefined') {
+          window.scrollTo(0, 0);
+        }
       }
     });
   }
