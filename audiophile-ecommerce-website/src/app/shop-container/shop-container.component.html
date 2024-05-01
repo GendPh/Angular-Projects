@@ -17,7 +17,7 @@
       <div class="bg-gray flex-grow flex justify-between">
         <button class="flex-grow px-2" (click)="ReduceProduct(item)"
           onclick="this.parentNode.querySelector('input[type=number]').stepDown()">-</button>
-        <input type="number" value="1" min="0" max="10" class="no-spinner bg-transparent text-center">
+        <input type="number" [value]="item.quantity" min="0" max="10" class="no-spinner bg-transparent text-center">
         <button class="flex-grow px-2" (click)="AddProduct(item)"
           onclick="this.parentNode.querySelector('input[type=number]').stepUp()">+</button>
       </div>
@@ -26,8 +26,9 @@
 
   <div class="flex justify-between uppercase my-5">
     <p class="opacity-50">Total</p>
-    <p class="opacity-100 font-bold">$ {{cartTotal}}</p>
+    <p class="opacity-100 font-bold">$ {{cartTotal[0]}}</p>
   </div>
 
-  <a routerLink="/checkout"><button class="button-primary w-full uppercase">Checkout</button></a>
+  <a (click)="CloseShopContainer()" routerLink="/checkout"><button
+      class="button-primary w-full uppercase">Checkout</button></a>
 </div>

@@ -15,7 +15,7 @@ export class NavBarComponent {
   showMenu: boolean = false;
   showCart: boolean = false;
 
-  CloseMenuCart() {
+  ReloadPage() {
     const bodyElement = document.querySelector('body');
 
     this.showMenu = false;
@@ -26,6 +26,10 @@ export class NavBarComponent {
       bodyElement.classList.remove('overflow-hidden', 'pointer-events-none');
     }
   }
+  CloseShopBar() {
+    this.ReloadPage();
+  }
+
   ActiveMenu() {
     const bodyElement = document.querySelector('body');
     if (this.showCart) {

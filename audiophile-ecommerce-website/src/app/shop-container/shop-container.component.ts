@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductCart } from '../../Model/product.model';
 import { CartService } from '../../Service/cart.service';
@@ -13,29 +13,34 @@ import { CommonModule } from '@angular/common';
 })
 export class ShopContainerComponent {
   cartList: ProductCart[] = [];
-  cartTotal: number = 0;
+  cartTotal: number[] = [];
 
   constructor(private cartService: CartService) {
     this.cartList = cartService.cartList;
-    this.cartTotal = cartService.Total();
+    this.cartTotal = cartService.cartTotal;
+    this.cartService.Total();
+  }
+
+
+  @Output() CloseShopBar = new EventEmitter();
+
+  CloseShopContainer() {
+    this.CloseShopBar.emit();
   }
 
   AddProduct(product: ProductCart) {
     const item = this.cartList.indexOf(product);
     if (this.cartList[item].quantity < 10) {
       this.cartService.IncreaseProduct(item);
-      this.cartTotal = this.cartService.Total();
     }
   }
 
   ReduceProduct(product: ProductCart) {
     const item = this.cartList.indexOf(product);
     this.cartService.ReduceProduct(item);
-    this.cartTotal = this.cartService.Total();
   }
 
   RemoveAll() {
     this.cartService.RemoveAll();
-    this.cartTotal = 0;
   }
 }

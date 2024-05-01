@@ -50,14 +50,12 @@ export class Product {
 };
 
 export class ProductCart {
-  id: number;
   quantity: number;
   slug: string;
   name: string;
   price: number;
 
-  constructor(id: number, quantity: number, slug: string, name: string, price: number) {
-    this.id = id;
+  constructor(quantity: number, slug: string, name: string, price: number) {
     this.quantity = quantity;
     this.slug = slug;
     this.name = name;

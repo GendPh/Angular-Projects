@@ -1,5 +1,6 @@
-<header class="bg-black">
-  <div class="p-4 lg:mx-40 border border-b-[rgba(255,255,255,0.3)] flex justify-between items-center z-50">
+<header class="bg-black z-50">
+  <div
+    class="p-4 lg:mx-40 border border-transparent border-b-[rgba(255,255,255,0.3)] flex justify-between items-center z-50">
     <div class="flex">
       <button (click)="ActiveMenu()" class="lg:hidden pointer-events-auto">
         <svg width="16" height="15" xmlns="http://www.w3.org/2000/svg">
@@ -8,10 +9,10 @@
           </g>
         </svg>
       </button>
-      <a routerLink="/" class="logo hidden md:block">audiophile</a>
+      <a routerLink="/" (click)="ReloadPage()" class="pointer-events-auto logo hidden md:block">audiophile</a>
     </div>
 
-    <a routerLink="/" class="logo md:hidden">audiophile</a>
+    <a (click)="ReloadPage()" routerLink="/" class="pointer-events-auto logo md:hidden">audiophile</a>
 
     <nav class="hidden lg:block text-white uppercase">
       <ul class="flex gap-5">
@@ -42,10 +43,10 @@
       class="pointer-events-none fixed inset-0 top-[70px] bg-[rgba(0,0,0,0)]">
     </div>
 
-    <app-category (click)="CloseMenuCart()" [ngClass]="{'top-20':showMenu,'-top-full': !showMenu,}"
-      class="pointer-events-auto fixed left-0 right-0 grid gap-5 px-5 py-2 transition-all duration-300 bg-white rounded-lg z-10"></app-category>
+    <app-category (click)="ReloadPage()" [ngClass]="{'top-20':showMenu,'-top-[2000px]': !showMenu,}"
+      class="pointer-events-auto fixed left-0 right-0 grid gap-5 px-5 py-2 md:py-20 transition-all duration-150 bg-white rounded-lg z-10"></app-category>
 
-    <app-shop-container [ngClass]="{'top-20':showCart,'-top-full': !showCart,}"
-      class="pointer-events-auto fixed left-5 lg:w-fit lg:ml-auto right-5 lg:right-40 z-10 transition-all duration-300"></app-shop-container>
+    <app-shop-container (CloseShopBar)="CloseShopBar()" [ngClass]="{'top-20':showCart,'-top-[2000px]': !showCart,}"
+      class="pointer-events-auto fixed left-5 lg:w-fit lg:ml-auto right-5 lg:right-40 z-10 transition-all duration-150"></app-shop-container>
   </div>
 </header>

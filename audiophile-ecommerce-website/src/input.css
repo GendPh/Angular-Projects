@@ -5,6 +5,13 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply font-Manrope;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  
   section {
     @apply px-6 py-10 lg:px-40 bg-white;
   }
@@ -16,7 +23,6 @@
   h6,
   .subtitle,
   .over-line {
-    font-family: "Manrope", sans-serif;
     font-weight: bold;
     text-transform: uppercase;
   }
